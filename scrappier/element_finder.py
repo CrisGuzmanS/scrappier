@@ -83,7 +83,7 @@ class ElementFinder:
 
     def where_inner_text(text:str, driver, element=None):
         return ElementFinder.where_xpath( 
-            f"//*[ text() = '{text}' ]",
+            f"//*[ normalize-space()='{text}' ]",
             driver , 
             element
         )
