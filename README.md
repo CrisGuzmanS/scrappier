@@ -28,6 +28,8 @@ Scrappier is a web scrapper which uses chrome in a headless mode. This library p
 
 ### width()
 
+### where_inner_text(text)
+
 ### build()
 
 ### resize(width:int, height:int)
@@ -65,6 +67,8 @@ Scrappier is a web scrapper which uses chrome in a headless mode. This library p
 ### where_xpath(xpath:str, driver, element=None)
 
 ### where_id(id:str, driver, element=None)
+
+### where_inner_text(text:str, driver, element=None)
 
 ### where_contain_text(text, driver, element=None)
 
