@@ -50,23 +50,48 @@ class ElementFinder:
 
     @staticmethod
     def where_xpath(xpath:str, driver, element=None):
-        return ElementFinder( (By.XPATH, xpath), driver , element)
+        return ElementFinder( 
+            (By.XPATH, xpath), 
+            driver , 
+            element
+        )
 
     @staticmethod
     def where_id(id:str, driver, element=None):
-        return ElementFinder( (By.ID, id), driver, element)
+        return ElementFinder( 
+            (By.ID, id), 
+            driver, 
+            element
+        )
 
     @staticmethod
     def where_name(name:str, driver, element=None):
-        return ElementFinder( (By.NAME, name), driver , element)
+        return ElementFinder( 
+            (By.NAME, name), 
+            driver , 
+            element
+        )
 
     @staticmethod
     def where_contain_text(text:str, driver, element=None):
-        return ElementFinder.where_xpath( f"//*[contains(text(), '{text}')]", driver , element)
+        return ElementFinder.where_xpath( 
+            f"//*[contains(text(), '{text}')]", 
+            driver , 
+            element
+        )
 
+    @staticmethod
     def where_class_name(name:str, driver, element=None):
-        return ElementFinder( (By.CLASS_NAME, name), driver , element)
+        return ElementFinder( 
+            (By.CLASS_NAME, name), 
+            driver , 
+            element
+        )
 
     @staticmethod
     def where_tag_name(name:str, driver, element=None):
-        return ElementFinder( (By.TAG_NAME, name), driver, element )
+        return ElementFinder( 
+            (By.TAG_NAME, name), 
+            driver, 
+            element
+        )

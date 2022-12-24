@@ -10,8 +10,5 @@ class ElementCollection(Collection):
         super().__init__(items)
         self.driver = driver
 
-    def get(self) -> list:
-        return self._collection
-
     def item(self, item) -> Element:
         return Element(item, self.driver)

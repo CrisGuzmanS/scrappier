@@ -54,16 +54,11 @@ class Browser:
         return self.driver
 
     def screenshot(self, path:str):
-        print("====================")
-        print(f"screenshot {path}")
-        print("====================")
         self.driver.get_screenshot_as_file(f"{path}")
 
     def snapshot(self):
         path = f"{datetime.now().strftime('%d-%m-%Y-%H-%M-%S')}.png"
-        print("====================")
-        print(f"snapshpt {path}")
-        print("====================")
+
         self.screenshot(path)
 
     def wait(self, seconds:int):

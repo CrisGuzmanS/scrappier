@@ -65,23 +65,22 @@ class Element():
         return self.element.get_attribute(name)
 
     def click(self):
-        """clicks the element
-
         """
+        clicks the element
+        """
+
         self.element.click()
 
     def clear(self):
-        """clear the input field
-
+        """
+        clear the input field
         """
 
         self.element.clear()
 
     def children(self) -> scrappier.element_collection.ElementCollection:
-        """gets a collection of the next children elements
-
-        Returns:
-            scrappier.element_collection.ElementCollection
+        """
+        gets a collection of the next children elements
         """
         return scrappier.element_collection.ElementCollection(
             self.element.find_elements(By.XPATH,"./child::*"),
@@ -89,13 +88,8 @@ class Element():
         )
 
     def where_tag_name(self, name:str) -> ElementFinder:
-        """find a subelement with the tag name specified
-
-        Args:
-            name (str): name of the tag to search
-
-        Returns:
-            ElementFinder
+        """
+        find a subelement with the tag name specified
         """
 
         return ElementFinder.where_tag_name(
