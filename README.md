@@ -72,6 +72,8 @@ Scrappier is a web scrapper which uses chrome in a headless mode. This library p
 
 ### where_tag_name(name:str, driver, element=None)
 
+### next_sibling(name:str, driver, element)
+
 ## Available methods for Element
 
 ### attributes() -> list
@@ -89,6 +91,8 @@ Scrappier is a web scrapper which uses chrome in a headless mode. This library p
 ### click()
 
 ### children()
+
+### next_sibling()
 
 ### where_tag_name(name:str)
 

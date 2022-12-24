@@ -95,3 +95,7 @@ class ElementFinder:
             driver, 
             element
         )
+
+    @staticmethod
+    def next_sibling(driver, element) -> Element:
+        return ElementFinder.where_xpath("following-sibling::*", driver, element).first()

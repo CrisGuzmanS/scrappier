@@ -81,18 +81,25 @@ class Element():
             self.driver
         )
 
-    def where_tag_name(self, name:str) -> ElementFinder:
+    def next_sibling(self):
+        """
+        gets the next element of the current element
+        """
+        return scrappier.element_finder.ElementFinder.next_sibling(self.driver, self.element)
+        
+
+    def where_tag_name(self, name:str) -> scrappier.element_finder.ElementFinder:
         """
         find a subelement with the tag name specified
         """
 
-        return ElementFinder.where_tag_name(
+        return scrappier.element_finder.ElementFinder.where_tag_name(
             name,
             self.driver,
             self.element
         )
 
-    def where_attribute(self, attribute:str, value:str) -> ElementFinder:
+    def where_attribute(self, attribute:str, value:str) -> scrappier.element_finder.ElementFinder:
         """find a subelement with the attribute and value specified
 
         Args:
@@ -103,7 +110,7 @@ class Element():
             ElementFinder
         """
 
-        return ElementFinder.where_xpath(
+        return scrappier.element_finder.ElementFinder.where_xpath(
             f".//*[@{attribute}='{value}']",
             self.driver,
             self.element
