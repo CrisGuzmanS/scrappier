@@ -1,1 +1,1 @@
-from browser import Browser
+from scrappier.browser import Browser

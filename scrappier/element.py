@@ -13,13 +13,6 @@ class Element():
     """
 
     def __init__(self, element: WebElement, driver: WebDriver):
-        """
-
-        Args:
-            element (WebElement): web element to wrap
-            driver (WebDriver): web driver
-        """
-
         self.driver = driver
         self.element = element
 
@@ -29,40 +22,41 @@ class Element():
     def type(self, text:str):
         """
         Types an specific text in an input field
-
         """
 
         self.element.send_keys(text)
 
     def text(self) -> str:
-        """gets the inner text of the element
-
-        Returns:
-            str: inner text of the element
+        """
+        gets the inner text of the element
         """
 
         return self.element.text
 
     def html(self) -> str:
-        """gets the inner html of the element
-
-        Returns:
-            str: the inner html of the element
+        """
+        gets the inner html of the element
         """
 
         return self.element.get_attribute('innerHTML')
 
     def attribute(self, name:str) -> str:
-        """gets the attribute's value
-
-        Args:
-            name (str): name of the attribute to search
-
-        Returns:
-            str: attribute's value
+        """
+        gets the attribute's value
         """
 
         return self.element.get_attribute(name)
+
+    def attributes(self) -> list:
+        lst = []
+
+        for attribute in self.element.get_property('attributes'):
+            lst.append({
+                "name": attribute["name"],
+                "value": attribute["value"]
+            })
+
+        return lst
 
     def click(self):
         """

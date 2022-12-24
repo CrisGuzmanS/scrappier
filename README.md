@@ -74,6 +74,8 @@ Scrappier is a web scrapper which uses chrome in a headless mode. This library p
 
 ## Available methods for Element
 
+### attributes() -> list
+
 ### enter()
 
 ### type(text:str)

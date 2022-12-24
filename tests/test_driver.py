@@ -1,5 +1,5 @@
 import unittest
-from scrappier.browser import Browser
+from scrappier import Browser
 import os
 
 class TestDriver(unittest.TestCase):
@@ -24,6 +24,12 @@ class TestDriver(unittest.TestCase):
         count = browser.where_class_name("Box-row--focus-gray").get().count()
 
         self.assertEqual(7, count)
+
+    def test_attributes(self):
+        browser = Browser()
+        browser.visit("https://github.com/public-apis/public-apis")
+        attributes = browser.where_class_name("Box-row--focus-gray").first().attributes()
+        print(attributes)
 
 if __name__ == '__main__':
     unittest.main()
