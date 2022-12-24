@@ -6,6 +6,7 @@ from datetime import datetime
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
+from scrappier.exceptions.element_not_found_exception import ElementNotFoundException
 
 class ElementFinder:
 
@@ -31,7 +32,7 @@ class ElementFinder:
             )
         except TimeoutException:
             self.driver.get_screenshot_as_file( "images/errors/"+datetime.now().strftime("%d-%b-%Y (%H:%M:%S.%f).png") )
-            raise exceptions.element_not_found_exception.ElementNotFoundException(f"the element ({','.join(self.locator)}) was not found")
+            raise ElementNotFoundException(f"the element ({','.join(self.locator)}) was not found")
 
     def first(self):
         try:
@@ -46,7 +47,7 @@ class ElementFinder:
             )
         except TimeoutException:
             self.driver.get_screenshot_as_file( "images/errors/"+datetime.now().strftime("%d-%b-%Y (%H:%M:%S.%f).png") )
-            raise exceptions.element_not_found_exception.ElementNotFoundException(f"the element ({','.join(self.locator)}) was not found")
+            raise ElementNotFoundException(f"the element ({','.join(self.locator)}) was not found")
 
     @staticmethod
     def where_xpath(xpath:str, driver, element=None):
@@ -76,6 +77,13 @@ class ElementFinder:
     def where_contain_text(text:str, driver, element=None):
         return ElementFinder.where_xpath( 
             f"//*[contains(text(), '{text}')]", 
+            driver , 
+            element
+        )
+
+    def where_inner_text(text:str, driver, element=None):
+        return ElementFinder.where_xpath( 
+            f"//*[ text() = '{text}' ]",
             driver , 
             element
         )

@@ -25,19 +25,27 @@ class TestDriver(unittest.TestCase):
 
     #     self.assertEqual(7, count)
 
-    def test_next_sibling(self):
-
+    def test_where_inner_text(self):
         browser = Browser()
         browser.visit("https://github.com/public-apis/public-apis")
-        sibling = browser.where_class_name("Box-row--focus-gray").first().next_sibling()
 
-        print("==========")
-        print("sibling")
-        print("==========")
-        print(sibling.text())
-        print("==========")
+        element = browser.where_inner_text("Add files via upload").first()
 
-        self.assertTrue(True)
+        self.assertEqual("Add files via upload", element.text())
+
+    # def test_next_sibling(self):
+
+    #     browser = Browser()
+    #     browser.visit("https://github.com/public-apis/public-apis")
+    #     sibling = browser.where_class_name("Box-row--focus-gray").first().next_sibling()
+
+    #     print("==========")
+    #     print("sibling")
+    #     print("==========")
+    #     print(sibling.text())
+    #     print("==========")
+
+    #     self.assertTrue(True)
 
     # def test_attributes(self):
     #     browser = Browser()

@@ -48,6 +48,10 @@ class Element():
         return self.element.get_attribute(name)
 
     def attributes(self) -> list:
+        """
+        gets all attributes of the element
+        """
+
         lst = []
 
         for attribute in self.element.get_property('attributes'):
@@ -76,6 +80,7 @@ class Element():
         """
         gets a collection of the next children elements
         """
+
         return scrappier.element_collection.ElementCollection(
             self.element.find_elements(By.XPATH,"./child::*"),
             self.driver
@@ -85,9 +90,9 @@ class Element():
         """
         gets the next element of the current element
         """
+
         return scrappier.element_finder.ElementFinder.next_sibling(self.driver, self.element)
         
-
     def where_tag_name(self, name:str) -> scrappier.element_finder.ElementFinder:
         """
         find a subelement with the tag name specified
@@ -100,14 +105,8 @@ class Element():
         )
 
     def where_attribute(self, attribute:str, value:str) -> scrappier.element_finder.ElementFinder:
-        """find a subelement with the attribute and value specified
-
-        Args:
-            attribute (str): the attribute of the element
-            value (str): the value of the attribute
-
-        Returns:
-            ElementFinder
+        """
+        find a subelement with the attribute and value specified
         """
 
         return scrappier.element_finder.ElementFinder.where_xpath(

@@ -74,15 +74,15 @@ class Browser:
             driver = self.driver
         )
 
-    def where_id(self, id:str) -> 'ElementFinder':
-        return ElementFinder(
-            (By.ID, id),
-            self.driver
-        )
-
     def where_name(self, name:str) -> 'ElementFinder':
         return ElementFinder(
             (By.NAME, name),
+            self.driver
+        )
+
+    def where_id(self, id:str) -> 'ElementFinder':
+        return ElementFinder(
+            (By.ID, id),
             self.driver
         )
 
@@ -91,6 +91,9 @@ class Browser:
             f"//*[contains(text(), '{text}')]",
             self.driver
         )
+
+    def where_inner_text(self, text:str) -> 'Elementfinder':
+        return ElementFinder.where_inner_text(text, self.driver)
 
     def where_class_name(self, name:str) -> 'ElementFinder':
         return ElementFinder(
