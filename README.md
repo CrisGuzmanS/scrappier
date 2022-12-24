@@ -5,7 +5,7 @@ Scrappier is a web scrapper which uses chrome in a headless mode. This library p
 ## Requirements
 
 * python 3.8
-* chrome driver installed in /usr/bin//usr/bin/chromedriver
+* chrome driver installed in /usr/bin/chromedriver
 
 ## Instalation
 
