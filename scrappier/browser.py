@@ -62,10 +62,20 @@ class Browser:
 
         self.screenshot(path)
 
+    def url(self) -> str:
+        return self.driver.current_url
+
     def wait(self, seconds:int):
         self.driver.implicitly_wait(seconds)
 
-    def visit(self, url:str) -> None:
+    def visit(self, url:str, params:dict = {}) -> None:
+
+        params = ['{}={}'.format(param, value) for param, value in params.items()]
+        params = '&'.join(params)
+
+        if params:
+            url = url+"?"+params
+
         self.driver.get(url)
 
     def where_xpath(self, xpath:str) -> 'ElementFinder':

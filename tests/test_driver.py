@@ -25,13 +25,30 @@ class TestDriver(unittest.TestCase):
 
     #     self.assertEqual(7, count)
 
-    def test_where_inner_text(self):
+    # def test_where_inner_text(self):
+    #     browser = Browser()
+    #     browser.visit("https://github.com/public-apis/public-apis")
+
+    #     element = browser.where_inner_text("Add files via upload").first()
+
+    #     self.assertEqual("Add files via upload", element.text())
+
+    def test_visit(self):
+
+        url = "https://github.com/public-apis/public-apis"
+        
+        params = {
+            'first':'firstvalue'
+        }
+
         browser = Browser()
-        browser.visit("https://github.com/public-apis/public-apis")
+        browser.visit(url)
 
-        element = browser.where_inner_text("Add files via upload").first()
+        self.assertEqual(url, browser.url())
 
-        self.assertEqual("Add files via upload", element.text())
+        browser.visit(url, params)
+
+        self.assertEqual(url+"?first=firstvalue", browser.url())
 
     # def test_next_sibling(self):
 
