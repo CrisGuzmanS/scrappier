@@ -62,6 +62,9 @@ class Browser:
 
         self.screenshot(path)
 
+    def html(self) -> str:
+        return self.driver.page_source
+
     def url(self) -> str:
         return self.driver.current_url
 

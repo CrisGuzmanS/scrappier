@@ -28,6 +28,8 @@ Scrappier is a web scrapper which uses chrome in a headless mode. This library p
 
 ### build()
 
+### html()
+
 ### resize(width:int, height:int)
 
 ### screen(path:str)
