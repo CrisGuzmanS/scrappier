@@ -13,6 +13,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import Select
 
 class Browser:
     
@@ -70,6 +71,14 @@ class Browser:
 
     def wait(self, seconds:int):
         self.driver.implicitly_wait(seconds)
+
+    def select(input:str, value:str):
+        """
+        selects an specific value of the given select name
+        """
+
+        select = Select(self.driver.find_element_by_name(input))
+        select.select_by_value(value)
 
     def visit(self, url:str, params:dict = {}) -> None:
 

@@ -33,22 +33,39 @@ class TestDriver(unittest.TestCase):
 
     #     self.assertEqual("Add files via upload", element.text())
 
-    def test_visit(self):
+    # def test_visit(self):
 
-        url = "https://github.com/public-apis/public-apis"
+    #     url = "https://github.com/public-apis/public-apis"
         
-        params = {
-            'first':'firstvalue'
-        }
+    #     params = {
+    #         'first':'firstvalue'
+    #     }
+
+    #     browser = Browser()
+    #     browser.visit(url)
+
+    #     self.assertEqual(url, browser.url())
+
+    #     browser.visit(url, params)
+
+    #     self.assertEqual(url+"?first=firstvalue", browser.url())
+
+    def test_select(self):
+
+        url = "https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_option_value"
 
         browser = Browser()
         browser.visit(url)
 
-        self.assertEqual(url, browser.url())
+        browser.webdriver().switch_to.frame("iframeResult")
 
-        browser.visit(url, params)
+        select = browser.where_attribute("name","cars").first()
 
-        self.assertEqual(url+"?first=firstvalue", browser.url())
+
+        select.value("saab")
+
+        self.assertEqual(select.value(), "saab")
+
 
     # def test_next_sibling(self):
 

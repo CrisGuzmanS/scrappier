@@ -13,16 +13,18 @@ Scrappier is a web scrapper which uses chrome in a headless mode. This library p
 
 ## Basic usage
 
-    from scrappier import Browser
+```python
+from scrappier import Browser
 
-    browser = Browser()
+browser = Browser()
 
-    cards = browser.where_class("card").get()
+cards = browser.where_class("card").get()
 
-    for card in cards:
-        span = card.where_tag_name("span").first()
+for card in cards:
+    span = card.where_tag_name("span").first()
 
-        print(span.text())
+    print(span.text())
+```
 
 ## Available methods for browser
 
@@ -33,6 +35,8 @@ Scrappier is a web scrapper which uses chrome in a headless mode. This library p
 ### resize(width:int, height:int)
 
 ### screen(path:str)
+
+### select(name:str, value:str)
 
 ### url()
 
@@ -102,7 +106,20 @@ Scrappier is a web scrapper which uses chrome in a headless mode. This library p
 
 ### next_sibling()
 
+### value(value:str = None)
+
+gets the value of the element if there is no argument, but if an string was given, will set the input value
+
 ### where_tag_name(name:str)
 
 ### where_attribute(attribute:str, value:str)
 
+## Colaborators
+
+If you are a collaborator, please consider do the next:
+
+1. Create your new functionality
+2. Create a test of your new functionality
+3. change the version of the package in setup.py
+4. execute the next command: `python3 setup.py sdist bdist_wheel`
+5. upload the package: `source venv/bin/active && twine upload dist/*<your-version>*`

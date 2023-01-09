@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 import codecs
 import os
 
-VERSION = '1.4.0'
+VERSION = '1.5.0'
 DESCRIPTION = 'Scrapper for chrome'
 
 with codecs.open(os.path.join(os.path.abspath(os.path.dirname(__file__)), "README.md"), encoding="utf-8") as fh:

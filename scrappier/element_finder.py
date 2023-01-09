@@ -47,7 +47,7 @@ class ElementFinder:
             )
         except TimeoutException:
             self.driver.get_screenshot_as_file( "images/errors/"+datetime.now().strftime("%d-%b-%Y (%H:%M:%S.%f).png") )
-            raise ElementNotFoundException(f"the element ({','.join(self.locator)}) was not found")
+            raise ElementNotFoundException(f"the element ({','.join(self.locator)}) was not found in the url: {self.driver.current_url}")
 
     @staticmethod
     def where_xpath(xpath:str, driver, element=None):

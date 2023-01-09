@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import Select
 import scrappier
 
 class Element():
@@ -93,6 +94,23 @@ class Element():
 
         return scrappier.element_finder.ElementFinder.next_sibling(self.driver, self.element)
         
+    def tag(self) -> str:
+        """
+        retrieves the tag name of the element
+        """
+        return self.element.tag_name
+
+    def value(self, value = None):
+        
+        if not value:
+            return self.element.get_attribute("value")
+
+        if self.tag() == "select": 
+            Select(self.element).select_by_value(value)
+            return
+
+        self.type(value)
+
     def where_tag_name(self, name:str) -> scrappier.element_finder.ElementFinder:
         """
         find a subelement with the tag name specified
