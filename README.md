@@ -127,4 +127,6 @@ If you are a collaborator, please consider do the next:
 ## for developers
 
 install twine: `python3 -m pip instal twine`
+install setuptools: `pip3 install setuptools`
+install setuptools: `python3 setup.py sdist bdist_wheel`
 upload your changes: `twine upload dist/*`
