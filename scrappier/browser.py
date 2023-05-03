@@ -1,17 +1,10 @@
-from .element import Element
-
 from datetime import datetime
 
-from scrappier.element_collection import ElementCollection
 from scrappier.element_finder import ElementFinder
 
 from selenium import webdriver
-from selenium.common.exceptions import TimeoutException
-from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 
@@ -65,6 +58,9 @@ class Browser:
 
     def html(self) -> str:
         return self.driver.page_source
+
+    def alert(self):
+        return self.driver.switch_to.alert
 
     def url(self) -> str:
         return self.driver.current_url

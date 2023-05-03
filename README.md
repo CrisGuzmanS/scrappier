@@ -123,3 +123,8 @@ If you are a collaborator, please consider do the next:
 3. change the version of the package in setup.py
 4. execute the next command: `python3 setup.py sdist bdist_wheel`
 5. upload the package: `source venv/bin/active && twine upload dist/*<your-version>*`
+
+## for developers
+
+install twine: `python3 -m pip instal twine`
+upload your changes: `twine upload dist/*`

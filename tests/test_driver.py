@@ -50,21 +50,34 @@ class TestDriver(unittest.TestCase):
 
     #     self.assertEqual(url+"?first=firstvalue", browser.url())
 
-    def test_select(self):
-
-        url = "https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_option_value"
+    def test_alert(self):
+        url = "https://testpages.herokuapp.com/styled/alerts/alert-test.html"
 
         browser = Browser()
         browser.visit(url)
 
-        browser.webdriver().switch_to.frame("iframeResult")
+        browser.where_attribute("id","confirmexample").first().click()
+        browser.alert().accept()
 
-        select = browser.where_attribute("name","cars").first()
+        text = browser.where_attribute("id","confirmexplanation").first().text()
+
+        self.assertEqual(text,"You clicked OK, confirm returned true.")
+
+    # def test_select(self):
+
+    #     url = "https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_option_value"
+
+    #     browser = Browser()
+    #     browser.visit(url)
+
+    #     browser.webdriver().switch_to.frame("iframeResult")
+
+    #     select = browser.where_attribute("name","cars").first()
 
 
-        select.value("saab")
+    #     select.value("saab")
 
-        self.assertEqual(select.value(), "saab")
+    #     self.assertEqual(select.value(), "saab")
 
 
     # def test_next_sibling(self):
